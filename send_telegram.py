@@ -1,25 +1,4 @@
 #!/usr/bin/env python3
-"""
-Sends a fixed/static message to a Telegram chat via the Telegram Bot API.
-
-Uses only the Python standard library (urllib) so there is nothing extra
-to install in the GitHub Actions runner.
-
-Credentials are read from environment variables so nothing sensitive is
-hard-coded in this file:
-
-  TELEGRAM_BOT_TOKEN  - the token @BotFather gave you, e.g. 123456:ABC-DEF...
-  TELEGRAM_CHAT_ID    - the numeric chat ID to send to
-
-Locally you can set these in your shell before running:
-  export TELEGRAM_BOT_TOKEN="123456:ABC-DEF..."
-  export TELEGRAM_CHAT_ID="123456789"
-  python3 send_telegram.py
-
-On GitHub Actions these are pulled from repository Secrets (see the
-workflow file and README for setup steps).
-"""
-
 import json
 import os
 import sys
@@ -73,7 +52,7 @@ def main() -> int:
         detail = exc.read().decode("utf-8", errors="replace")
         print(f"ERROR: HTTP {exc.code} from Telegram API: {detail}", file=sys.stderr)
         return 1
-    except Exception as exc:  # noqa: BLE001 - want to log any failure clearly in CI logs
+    except Exception as exc:
         print(f"ERROR: failed to send Telegram message: {exc}", file=sys.stderr)
         return 1
 
