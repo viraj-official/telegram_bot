@@ -2,11 +2,8 @@ name: Send scheduled Telegram message
 
 on:
   schedule:
-    # Runs every 30 minutes. GitHub Actions cron uses UTC and, under heavy
-    # platform load, can delay a run by several minutes past the exact mark
-    # (GitHub explicitly does not guarantee scheduled runs fire on the dot).
     - cron: "*/30 * * * *"
-  workflow_dispatch: {} # lets you trigger a run manually from the Actions tab, for testing
+  workflow_dispatch: {}
 
 jobs:
   send-telegram:
