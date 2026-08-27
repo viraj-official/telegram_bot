@@ -7,7 +7,7 @@ import urllib.request
 from datetime import datetime, timezone
 
 MESSAGE_TEMPLATE = (
-    "This is an automated message sent every 30 minutes.\n\n"
+    "This is an automated message sent every 1 minutes.\n\n"
     "Sent at: {timestamp} UTC"
 )
 
